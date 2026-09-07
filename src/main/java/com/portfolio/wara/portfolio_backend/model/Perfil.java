@@ -16,23 +16,16 @@ public class Perfil {
     
     // Construtor
     public Perfil() {
-        // Dados estáticos do seu perfil
         this.nome = "Wara Pardo";
         this.profissao = "Desenvolvedor Java Full Stack";
         this.localizacao = "Limeira, São Paulo, Brasil";
         this.email = "waarapardo@gmail.com";
         this.telefone = "+55 19 982757007G";
-        this.sobre = "Desenvolvedor especializado em Java e Spring Boot, com foco em arquitetura de software, APIs REST e boas práticas de desenvolvimento. Atualmente aprendendo e implementando projetos com as versões mais recentes do ecossistema Java.";
+        this.sobre = "Sou um entusiasta da tecnologia e do desenvolvimento web...";
         
         this.habilidades = List.of(
-            "Java 25",
-            "Spring Boot 4.0", 
-            "APIs REST",
-            "Arquitetura MVVM",
-            "Maven/Gradle",
-            "Git/GitHub",
-            "HTML/CSS/JavaScript",
-            "MySQL/PostgreSQL"
+            "Fullstack", "Python", "Java 25", "Spring Boot 4.0", 
+            "AWS", "Linux", "Git & GitHub", "HTML/CSS/JavaScript", "MySQL/PostgreSQL"
         );
         
         this.redesSociais = Map.of(
@@ -42,13 +35,22 @@ public class Perfil {
         );
         
         this.projetos = List.of(
-            new Projeto("Portfolio Backend API", "API REST com Spring Boot 4.0 e Java 25", "https://github.com/warapardo/portfolio-backend"),
-            new Projeto("Portfolio Frontend", "Site estático com HTML/CSS/JS", "https://warapardo.github.io/portfolio-wara/"),
-            new Projeto("Outros Projetos", "Veja mais no meu GitHub", "https://github.com/warapardo")
+            new Projeto(
+                "EPIC (Energy Production Innovation Center)", 
+                "Desenvolvimento e manutenção de tema WordPress customizado para o EPIC/Unicamp...", 
+                "https://github.com/portfolio-wara",
+                List.of("HTML", "CSS", "JavaScript", "PHP")
+            ),
+            new Projeto(
+                "Portfolio Backend API", 
+                "API REST com Spring Boot 4.0 e Java 25...", 
+                "https://github.com/portfolio-backend",
+                List.of("Java 25", "Spring Boot 4.0", "Maven")
+            )
         );
     }
     
-    // Getters (Spring Boot usa para converter para JSON)
+    // Getters
     public String getNome() { return nome; }
     public String getProfissao() { return profissao; }
     public String getLocalizacao() { return localizacao; }
@@ -59,20 +61,22 @@ public class Perfil {
     public Map<String, String> getRedesSociais() { return redesSociais; }
     public List<Projeto> getProjetos() { return projetos; }
     
-    // Classe interna para projetos
     public static class Projeto {
         private String nome;
         private String descricao;
         private String link;
+        private List<String> tecnologias;
         
-        public Projeto(String nome, String descricao, String link) {
+        public Projeto(String nome, String descricao, String link, List<String> tecnologias) {
             this.nome = nome;
             this.descricao = descricao;
             this.link = link;
+            this.tecnologias = tecnologias;
         }
         
         public String getNome() { return nome; }
         public String getDescricao() { return descricao; }
         public String getLink() { return link; }
+        public List<String> getTecnologias() { return tecnologias; }
     }
 }
