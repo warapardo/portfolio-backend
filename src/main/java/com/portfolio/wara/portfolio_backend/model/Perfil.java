@@ -20,7 +20,7 @@ public class Perfil {
         this.profissao = "Desenvolvedor Java Full Stack";
         this.localizacao = "Limeira, São Paulo, Brasil";
         this.email = "waarapardo@gmail.com";
-        this.telefone = "+55 19 982757007G";
+        this.telefone = "+55 (19) 982757007";
         this.sobre = "Sou um entusiasta da tecnologia e do desenvolvimento web...";
         
         this.habilidades = List.of(
@@ -38,13 +38,13 @@ public class Perfil {
             new Projeto(
                 "EPIC (Energy Production Innovation Center)", 
                 "Desenvolvimento e manutenção de tema WordPress customizado para o EPIC/Unicamp...", 
-                "https://github.com/portfolio-wara",
+                "https://epicenergy.org.br/",
                 List.of("HTML", "CSS", "JavaScript", "PHP")
             ),
             new Projeto(
                 "Portfolio Backend API", 
                 "API REST com Spring Boot 4.0 e Java 25...", 
-                "https://github.com/portfolio-backend",
+                "https://github.com/warapardo/portfolio-backend",
                 List.of("Java 25", "Spring Boot 4.0", "Maven")
             )
         );

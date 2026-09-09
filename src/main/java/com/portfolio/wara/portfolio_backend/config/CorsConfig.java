@@ -12,20 +12,15 @@ public class CorsConfig implements WebMvcConfigurer {
     
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        /*
-        Método que configura CORS (Cross-Origin Resource Sharing).
-        CORS: Permite que sites em domínios diferentes acessem sua API.
-        */
-        
-        registry.addMapping("/api/**")  // Aplica a todas rotas /api
+        registry.addMapping("/**") // Aplica a absolutamente todas as rotas da aplicação
                 .allowedOrigins(
-                    "https://warapardo.github.io",  // Seu portfólio GitHub
-                    "http://localhost:8000",         // Frontend local
-                    "http://localhost:5500"          // Live Server VSCode
-                )
-                .allowedMethods("GET", "POST", "OPTIONS")  // Métodos permitidos
-                .allowedHeaders("*")  // Todos cabeçalhos
-                .allowCredentials(false)  // Sem cookies
-                .maxAge(3600);  // Cache por 1 hora
+                        "https://warapardo.github.io", // Seu portfólio GitHub em produção
+                        "http://localhost:3000", // Porta padrão do seu Next.js local
+                        "http://localhost:8000",
+                        "http://localhost:5500")
+                .allowedMethods("GET", "POST", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600);
     }
 }
