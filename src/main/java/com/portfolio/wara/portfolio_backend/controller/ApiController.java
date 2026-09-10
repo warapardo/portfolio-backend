@@ -40,7 +40,7 @@ public class ApiController {
         perfil.put("nome", "Wara Pardo");
         perfil.put("profissao", "Desenvolvedor Java Full Stack");
         perfil.put("localizacao", "São Paulo, Brasil");
-        perfil.put("email", "contato@warapardo.dev");
+        perfil.put("email", "waarapardo@gmail.com");
         perfil.put("portfolio", "https://warapardo.github.io/portfolio-wara/");
         return ResponseEntity.ok(perfil);
     }
