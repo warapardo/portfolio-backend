@@ -1,10 +1,19 @@
-# Etapa 1: Compilação (Build)
-FROM maven:3.9.9-eclipse-temurin-25 AS build
+# Etapa 1: Compilação utilizando o próprio Maven Wrapper (.mvnw)
+FROM eclipse-temurin:25-jdk AS build
 WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
 
-# Etapa 2: Execução (Runtime)
+# Copia os arquivos de configuração do Maven primeiro para aproveitar o cache
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+
+RUN chmod +x mvnw
+
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
+RUN ./mvnw clean package -DskipTests
+
+# Etapa 2: Execução leve (Runtime)
 FROM eclipse-temurin:25-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
